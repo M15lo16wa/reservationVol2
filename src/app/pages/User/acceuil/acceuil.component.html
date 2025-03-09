@@ -1,0 +1,22 @@
+<div class="hero">
+  <header>
+    <h1 class="logo">AireLine</h1>
+    <nav>
+      <ul>
+        <li><p (click)="goToResevation()">Réservations</p></li>
+        <li><p (click)="goToDestination()">Destinations</p></li>
+        <li><p>Infos</p></li>
+        <li><button class="login-btn"
+            (click)="goToLogin()">Connexion</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="hero-content">
+    <h2>Voyagez en toute simplicité avec AireLine</h2>
+    <p>Découvrez les meilleures destinations et réservez vos vols en quelques
+      clics.</p>
+    <button class="cta-btn" (click)="goToDestination()">Réserver
+      maintenant</button>
+  </div>
+</div>

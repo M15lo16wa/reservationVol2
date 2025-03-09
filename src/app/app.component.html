@@ -1,0 +1,18 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard">Tableau de Bord</a>
+      <a mat-list-item routerLink="/airlines">Compagnies</a>
+      <a mat-list-item routerLink="/flights">Vols</a>
+      <a mat-list-item routerLink="/bookings">Réservations</a>
+      <a mat-list-item routerLink="/users">Utilisateurs</a>
+      <a mat-list-item routerLink="/passengers">Passagers</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<router-outlet />
