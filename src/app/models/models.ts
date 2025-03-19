@@ -4,16 +4,25 @@ export interface Airline {
   country: string;
   status: 'active' | 'inactive';
 }
+export interface models {
+  airline: Airline;
+}
+
 
 export interface Flight {
-  id: number;
-  airlineId: number;
+  id: string;
   departure: string;
   destination: string;
-  date: string;
-  time: string;
+  departureDate: Date;
+  arrivalDate: Date;
+  Passenger:number;
   price: number;
-  availableSeats: number;
+  seats: number;
+  class: 'economy' | 'business' | 'first';
+  stops: number;
+}
+export interface models{
+  flight: Flight;
 }
 
 export interface Booking {
@@ -24,6 +33,9 @@ export interface Booking {
   paymentStatus: 'paid' | 'unpaid';
 }
 
+export interface models{
+  booking: Booking;
+}
 export interface User {
   id: number;
   name: string;
@@ -32,9 +44,16 @@ export interface User {
   isActive: boolean;
 }
 
+export interface models{
+  user: User;
+}
 export interface Passenger {
   id: number;
   bookingId: number;
   name: string;
   passportNumber: string;
+}
+
+export interface models{
+  passenger: Passenger;
 }

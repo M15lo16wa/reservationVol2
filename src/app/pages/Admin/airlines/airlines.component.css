@@ -1,0 +1,99 @@
+body{
+  background-color: rgb(243, 224, 200);
+  margin: 0;
+  padding: 10%;
+  display: block !important;;
+}
+.container {
+  margin-top: 20px;
+}
+
+h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 36px;
+  font-weight: bold;
+  color: #8a5c5c;
+  margin-bottom: 20px;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody + tbody {
+  border-top: 2px solid #dee2e6;
+}
+
+.badge {
+  padding: 0.5em 0.75em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 0.375rem;
+  display: block; /* Ajouté */
+  width: 97%; /* Ajouté */
+}
+
+.badge.bg-success {
+  background-color: #28a745;
+}
+
+.badge.bg-warning {
+  background-color: #ffc107;
+}
+
+.badge.bg-danger {
+  background-color: #dc3545;
+}
+
+/* Ajout des règles de responsivité */
+@media (max-width: 768px) {
+  body {
+    padding: 5%;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.5rem;
+  }
+
+  .badge {
+    font-size: 65%;
+    padding: 0.4em 0.6em;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    padding: 2%;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .badge {
+    font-size: 55%;
+    padding: 0.3em 0.5em;
+  }
+}

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
@@ -9,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AdminDashboardComponent {
 
+  constructor(private router: Router){}
+
+  goToReservations(): void {
+    this.router.navigate(['admin/bookings']);
+  }
 }

@@ -6,7 +6,10 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: beige;
+  background-image: url('https://img-4.linternaute.com/gjwbhC4dOdGOAMJ5p7DpLxk-xEA=/1500x/smart/90059b1d141b4d45824060f381323ec3/ccmcms-linternaute/10133254-02-hublot-rond-filipefrazao-fotoliacom.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-color: beige; */
   font-family: Arial, sans-serif;
 }
 

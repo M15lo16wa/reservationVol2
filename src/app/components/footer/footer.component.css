@@ -1,0 +1,72 @@
+.footer {
+  background-color: #0c2a58;
+  background-image: url('https://www.sosoxygene.com/wp-content/uploads/2023/08/voyager-avec-une-ppc-un-dilemme.jpg');
+  color: white;
+  padding: 40px 10px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+/* Contenu du footer */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 30px; /* Augmente l'espace entre les icônes et le texte */
+}
+
+/* Style du paragraphe */
+.footer p {
+  margin-left: 15px; /* Déplace légèrement le texte vers la gauche */
+  font-size: 16px;
+}
+
+/* Icônes des réseaux sociaux */
+.social-icons {
+  display: flex;
+  gap: 20px; /* Ajuste l'espace entre les icônes */
+}
+
+/* Icônes individuelles */
+.social-icon {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* Effet au survol */
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive : Ajustements sur mobile */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 10px;
+    min-height: 120px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer p {
+    margin-left: 0; /* Supprime le décalage sur mobile */
+    text-align: center;
+  }
+}

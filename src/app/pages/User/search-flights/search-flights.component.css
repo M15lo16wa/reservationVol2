@@ -1,40 +1,168 @@
-.search-container {
-  width: 80%;
-  margin: auto;
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+}
+
+h1{
+  color: #1731c9e0;
+}
+
+/* Conteneur principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Effet de profondeur */
+.mat-elevation-z4 {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+/* Formulaire de recherche */
+.search-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Section planning */
+.planning {
+  max-width: 90%;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-input {
+/* Titre du planning */
+#titre-planning {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Conteneur du tableau */
+.calendar {
+  overflow-x: auto;
+}
+
+/* Table de planning */
+.flight-planning-table {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.destinations-list {
-  list-style: none;
-  padding: 0;
-}
-
-.destinations-list li {
-  display: flex;
-  justify-content: space-between;
-  background: #f4f4f4;
-  padding: 10px;
-  margin-bottom: 5px;
-  border-radius: 5px;
-}
-
-button {
-  background: #007bff;
+.flight-planning-table thead {
+  background-color: #0073e6;
   color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
+  text-transform: uppercase;
 }
 
-button:hover {
-  background: #0056b3;
+.flight-planning-table th,
+.flight-planning-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+/* Lignes impaires */
+.flight-planning-table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+/* Effet hover */
+.flight-planning-table tbody tr:hover {
+  background-color: #d6e4ff;
+  transition: 0.3s ease-in-out;
+}
+
+/* Texte en gras pour la première colonne */
+.flight-planning-table td:first-child {
+  font-weight: bold;
+  color: #0073e6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .flight-planning-table th,
+  .flight-planning-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  #titre-planning {
+    font-size: 20px;
+  }
+}
+
+/* Section promotionnelle */
+.promo-section {
+  text-align: center;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* Titre promotionnel */
+.pub {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ff6600;
+  text-transform: uppercase;
+  text-align: center;
+  background: linear-gradient(45deg, #ff6600, #ffcc00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: pulse 1.5s infinite alternate;
+  margin-bottom: 10px;
+}
+
+/* Animation légère */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+/* Texte d'attraction */
+.attraction {
+  font-size: 18px;
+  color: #444;
+  text-align: center;
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff3cd;
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 5px solid #ffcc00;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Effet hover */
+.pub:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
 }

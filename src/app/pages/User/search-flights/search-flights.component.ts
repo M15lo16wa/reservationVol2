@@ -1,35 +1,51 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+
+// footer
+import { FooterComponent } from '../../../components/footer/footer.component';
+
 
 @Component({
   selector: 'app-search-flights',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatButtonModule,
+    FooterComponent],
   templateUrl: './search-flights.component.html',
   styleUrl: './search-flights.component.css'
 })
 export class SearchFlightsComponent {
-  destinations = [
-    { name: 'Paris', description: 'Ville lumière et capitale de la France' },
-    { name: 'New York', description: 'La ville qui ne dort jamais' },
-    { name: 'Tokyo', description: 'Mélange parfait entre tradition et modernité' }
-  ];
+  searchForm: FormGroup;
+flights: any;
 
-  filteredDestinations = [...this.destinations]; // Liste filtrée
-
-  constructor(private router: Router) {}
-
-  // Filtrer les destinations selon la recherche
-  onSearch(event: any) {
-    const query = event.target.value.toLowerCase();
-    this.filteredDestinations = this.destinations.filter(dest =>
-      dest.name.toLowerCase().includes(query)
-    );
+  constructor(private fb: FormBuilder) {
+    this.searchForm = this.fb.group({
+      departure: [''],
+      destination: [''],
+      date: [new Date()],
+      passengers: [1],
+      class: ['economy']
+    });
   }
 
-  // Naviguer vers la page des détails
-  viewDetails(destination: any) {
-    this.router.navigate(['/flight-details'], { state: { destination } });
+  onSearch() {
+    if (this.searchForm.valid) {
+      console.log(this.searchForm.value);
+      // Ici nous ajouterons la logique de recherche
+    }
   }
+
 }

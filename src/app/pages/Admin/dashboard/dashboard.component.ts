@@ -1,22 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from '../../../services/admin.service';
+import { AdminDashboardComponent } from "../../../components/admin-dashboard/admin-dashboard.component";
+
+import { AirlinesComponent } from '../airlines/airlines.component';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [],
+  imports: [AdminDashboardComponent, AirlinesComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
-  totalFlights = 0;
-  totalBookings = 0;
-  totalUsers = 0;
 
-  constructor(private adminService: AdminService) {}
 
-  ngOnInit(): void {
-    this.adminService.getFlights().subscribe(data => this.totalFlights = data.length);
-    this.adminService.getBookings().subscribe(data => this.totalBookings = data.length);
-    this.adminService.getUsers().subscribe(data => this.totalUsers = data.length);
-  }
+  constructor() {}
+
+  ngOnInit(): void {}
 }

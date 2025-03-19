@@ -7,7 +7,7 @@ import { Airline, Flight, Booking, User, Passenger } from '../models/models';
   providedIn: 'root'
 })
 export class AdminService {
-  private apiUrl = ''; // API REST
+  private apiUrl = 'http://localhost:3000'; // API REST
 
   constructor(private http: HttpClient) {}
 

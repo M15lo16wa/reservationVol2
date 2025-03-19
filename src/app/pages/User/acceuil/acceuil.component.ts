@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './acceuil.component.html',
-  styleUrl: './acceuil.component.css'
+  styleUrls: ['./acceuil.component.css']
 })
 export class AcceuilComponent {
   constructor(private router: Router){}

@@ -11,26 +11,26 @@ import { PassengersComponent } from './pages/Admin/passengers/passengers.compone
 import { FlightsComponent } from './pages/Admin/flights/flights.component';
 import { BookingComponent } from './pages/User/booking/booking.component';
 import { AcceuilComponent } from './pages/User/acceuil/acceuil.component';
-import { SearchFlightsComponent } from './components/search-flights/search-flights.component';
+import { SearchFlightsComponent } from './pages/User/search-flights/search-flights.component';
 import { FlightDetailsComponent } from './pages/User/flight-details/flight-details.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-
+// page de connexion
 import { LoginComponent } from './pages/login/login.component';
 
 export const routes: Routes = [
-  { path: 'admin/dashboard', component: DashboardComponent },
   { path: 'admin/airlines', component: AirlinesComponent },
   { path: 'admin/flights', component: FlightsComponent },
   { path: 'admin/bookings', component: BookingsComponent },
   { path: 'admin/users', component: UsersComponent },
+  {path:'user/search-flights', component:SearchFlightsComponent},
   { path: 'admin/passengers', component: PassengersComponent },
-  { path: 'user/acceuil', component: AcceuilComponent },
-  { path: 'user/search-flights', component: SearchFlightsComponent },
+  { path: 'admin/dashboard', component: DashboardComponent },
   { path: 'user/flight-details', component: FlightDetailsComponent },
   { path: 'user/booking', component: BookingComponent },
   { path: 'user/profile', component: UserProfileComponent },
-  {path: 'login', component: LoginComponent}, //defintion de la route d'authentification
-  { path: '', redirectTo: '/user/acceuil', pathMatch: 'full' }
+  { path: 'user/acceuil', component: AcceuilComponent },
+  { path: 'login', component: LoginComponent}, //defintion de la route d'authentification
+  { path: '', redirectTo: 'user/acceuil', pathMatch: 'full' }
 
 ];
 

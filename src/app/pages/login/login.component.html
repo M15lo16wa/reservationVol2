@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Connexion</title>
   </head>
   <body>
     <div class="login-container">
-      <h1 class="platform-name">AireLine</h1>
+      <h1 class="platform-name">AirLine</h1>
       <div class="login-box">
         <h2>Connexion</h2>
-        <form>
+        <form (ngSubmit)="login()" aria-label="Formulaire de connexion">
           <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Entrez votre email"
-            required />
+          <input type="email" id="email" [(ngModel)]="email" name="username"
+            placeholder="Entrez votre email"
+            required aria-required="true" />
 
           <label for="password">Mot de passe</label>
-          <input type="password" id="password"
-            placeholder="Entrez votre mot de passe" required />
+          <input type="password" id="password" [(ngModel)]="password"
+            name="password"
+            placeholder="Entrez votre mot de passe" required
+            aria-required="true" />
 
-          <button type="submit" (click)="gotToAdmin()">Se connecter</button>
+          <button type="submit" aria-label="Se connecter">Se connecter</button>
         </form>
-        <p class="signup-link">Pas encore inscrit ? <a href="#">Créer un
+        <p class="signup-link">Pas encore inscrit ? <a href="/signup"
+            aria-label="Créer un compte">Créer un
             compte</a></p>
+        <p *ngIf="errorMessage" class="error" role="alert">{{ errorMessage
+          }}</p>
       </div>
     </div>
-
   </body>
 </html>
