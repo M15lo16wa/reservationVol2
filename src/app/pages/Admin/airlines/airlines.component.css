@@ -1,99 +1,70 @@
-body{
-  background-color: rgb(243, 224, 200);
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
   margin: 0;
-  padding: 10%;
-  display: block !important;;
+  padding: 20px;
+  line-height: 1.6;
 }
+
 .container {
-  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-  font-family: "Dancing Script", cursive;
-  font-size: 36px;
-  font-weight: bold;
-  color: #8a5c5c;
-  margin-bottom: 20px;
+.sidebar {
+  background: #2c3e50;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.table {
-  width: 100%;
-  margin-bottom: 1rem;
-  color: #212529;
+.sidebar ul li p {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
-.table th,
-.table td {
-  padding: 0.75rem;
-  vertical-align: top;
-  border-top: 1px solid #dee2e6;
+.sidebar ul li a:hover {
+  background: #34495e;
 }
 
-.table thead th {
-  vertical-align: bottom;
-  border-bottom: 2px solid #dee2e6;
+.main {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 20px;
 }
 
-.table tbody + tbody {
-  border-top: 2px solid #dee2e6;
+.card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.badge {
-  padding: 0.5em 0.75em;
-  font-size: 75%;
-  font-weight: 700;
-  line-height: 1;
+.stats {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stat {
+  padding: 15px;
+  background: #ffcc66;
+  border-radius: 5px;
   text-align: center;
-  white-space: nowrap;
-  border-radius: 0.375rem;
-  display: block; /* Ajouté */
-  width: 97%; /* Ajouté */
+  width: 30%;
 }
 
-.badge.bg-success {
-  background-color: #28a745;
-}
-
-.badge.bg-warning {
-  background-color: #ffc107;
-}
-
-.badge.bg-danger {
-  background-color: #dc3545;
-}
-
-/* Ajout des règles de responsivité */
-@media (max-width: 768px) {
-  body {
-    padding: 5%;
-  }
-
-  h2 {
-    font-size: 28px;
-  }
-
-  .table th,
-  .table td {
-    padding: 0.5rem;
-  }
-
-  .badge {
-    font-size: 65%;
-    padding: 0.4em 0.6em;
-  }
-}
-
-@media (max-width: 576px) {
-  body {
-    padding: 2%;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-
-  .badge {
-    font-size: 55%;
-    padding: 0.3em 0.5em;
-  }
+.chart-container {
+  width: 100%;
+  height: 300px;
 }

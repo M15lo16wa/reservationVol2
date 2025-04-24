@@ -1,1 +1,73 @@
-<p>user-profile works!</p>
+<div class="container">
+  <h2>Ma page de réservations</h2>
+
+  <div class="reservation-box">
+    <h3 class="num-reservation">Les détails de vos réservations</h3>
+    <p>Veuillez valider votre réservation en utilisant votre carte bancaire.</p>
+
+    <ul class="booking-list">
+      <li *ngFor="let booking of booking" class="booking-item">
+        <h4 class="flight-number">Numéro de vol : </h4>
+        <p class="booking-detail"><strong>Départ :</strong> </p>
+        <p class="booking-detail"><strong>Arrivée :</strong></p>
+        <p class="booking-detail"><strong>Prix :</strong>$</p>
+        <p class="booking-detail">
+          <strong>Statut :</strong>
+          <span [class.valid]="booking.status" [class.invalid]="!booking.status">
+            {{ booking.status ? 'Validée' : 'Non validée' }}
+          </span>
+        </p>
+      </li>
+    </ul>
+
+    <form (submit)="validerReservation()">
+      <p>
+        Nom :
+        <input type="text" name="nom" placeholder="Entrez votre nom" required />
+      </p>
+      <p>
+        Email :
+        <input type="email" name="email" placeholder="Entrez votre email" required />
+      </p>
+      <button type="submit">Valider la réservation</button>
+    </form>
+  </div>
+
+  <div class="confirmed-reservations">
+    <h2>Les réservations confirmées</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Reservation</th>
+          <th>vol</th>
+          <th>Pays de depart</th>
+          <th>Pays de destination</th>
+          <th>classe</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of booking">
+          <td>{{booking.id_res}}</td>
+          <!-- <td>{{ booking.nom }}</td> -->
+          <!-- <td>{{ booking.email }}</td> -->
+          <td>{{ booking.numReservation }}</td>
+          <td>{{ booking.Flight.numeroVol }}</td>
+          <td>{{booking.Destination.villeDepart}}</td>
+          <td>{{booking.Destination.villeDestination}}</td>
+          <td>{{ booking.statut }}</td>
+          <td>
+            <span [class.valid]="booking.statut" [class.invalid]="!booking.statut">
+              {{ booking.statut ? 'Validée' : 'Non validée' }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+

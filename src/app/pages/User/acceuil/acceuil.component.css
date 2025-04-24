@@ -1,5 +1,5 @@
 /* Style global */
-*{
+* {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -33,7 +33,8 @@ header {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 40px; /* Augmenter l'espace entre les éléments */
+  gap: 40px;
+  /* Augmenter l'espace entre les éléments */
   margin: 0;
   padding: 0;
 }
@@ -49,6 +50,7 @@ nav ul li p {
   font-weight: bold;
   transition: color 0.3s;
 }
+
 nav ul li p {
   text-decoration: none;
   color: #333;
@@ -59,6 +61,8 @@ nav ul li p {
 
 nav ul li p:hover {
   color: #4f5ccc;
+  text-decoration: none;
+  /* Retirer la décoration */
 }
 
 /* Bouton Connexion */
@@ -82,8 +86,8 @@ nav ul li p:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('https://img.freepik.com/photos-gratuite/aile-avion-arriere-plan-ville_1232-1308.jpg');
-  height: 99vh;
+  background-image: url('https://cdn.pixabay.com/photo/2021/07/31/12/26/plane-6511878_640.jpg');
+  height: 100vh;
   padding-top: 50px;
   /* background-color: rgb(175, 158, 30); */
 
@@ -91,19 +95,19 @@ nav ul li p:hover {
 
 .hero-content h2 {
   font-size: 2.5rem;
-  color: #333;
+  color: #0269e7;
 }
 
 .hero-content p {
   font-size: 1.2rem;
-  color: #555;
+  color:   #ffffff ;
   margin: 10px 0;
 }
 
 /* Bouton principal */
 .cta-btn {
   padding: 12px 20px;
-  background-color: #5a67d8;
+  background-color: #5664db;
   color: white;
   border: none;
   border-radius: 5px;
@@ -115,3 +119,41 @@ nav ul li p:hover {
 .cta-btn:hover {
   background-color: #434190;
 }
+
+footer {
+  background: #ffffff;
+  color: rgb(208, 208, 208);
+  padding: 10px;
+  margin-top: 0;
+  /* Supprimer la marge supérieure */
+  text-align: center;
+}
+footer p {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  color: #595959;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  nav ul li p {
+    font-size: 1rem;
+  }
+}
+/* Section de planification de vol */

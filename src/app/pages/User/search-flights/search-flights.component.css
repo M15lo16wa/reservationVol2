@@ -11,7 +11,7 @@ body {
   background-color: #f5f5f5;
 }
 
-h1{
+h1 {
   color: #1731c9e0;
 }
 
@@ -99,6 +99,16 @@ h1{
   transition: 0.3s ease-in-out;
 }
 
+/* Effet cliquable pour les lignes */
+.flight-planning-table tbody tr {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.flight-planning-table tbody tr:active {
+  background-color: #cce7ff;
+}
+
 /* Texte en gras pour la première colonne */
 .flight-planning-table td:first-child {
   font-weight: bold;
@@ -107,6 +117,7 @@ h1{
 
 /* Responsive */
 @media (max-width: 768px) {
+
   .flight-planning-table th,
   .flight-planning-table td {
     padding: 8px;
@@ -142,8 +153,13 @@ h1{
 
 /* Animation légère */
 @keyframes pulse {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.1); }
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
 }
 
 /* Texte d'attraction */

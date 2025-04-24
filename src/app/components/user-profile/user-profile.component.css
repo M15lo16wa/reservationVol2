@@ -1,0 +1,190 @@
+/* Conteneur principal */
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+/* Titre principal */
+.container h2 {
+  text-align: center;
+  font-size: 26px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Box de réservation */
+.reservation-box {
+  background: #f8f8f8;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+/* Liste des réservations */
+.booking-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Élément individuel de réservation */
+.booking-item {
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.booking-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Détails de réservation */
+.booking-detail {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Numéro de vol */
+.flight-number {
+  font-size: 18px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+/* Statut validé ou non validé */
+.valid {
+  color: green;
+  font-weight: bold;
+}
+
+.invalid {
+  color: red;
+  font-weight: bold;
+}
+
+/* Formulaire */
+form {
+  margin-top: 20px;
+}
+
+form p {
+  margin: 10px 0;
+}
+
+input[type="text"],
+input[type="email"],
+button {
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: block;
+}
+
+/* Bouton */
+button {
+  background: rgb(4, 75, 167);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: rgb(3, 60, 135);
+}
+
+/* Table de réservations confirmées */
+.confirmed-reservations {
+  margin-top: 40px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+table thead {
+  background-color: #007bff;
+  color: white;
+}
+
+table th,
+table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Responsivité */
+@media (max-width: 1024px) {
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .container h2 {
+    font-size: 22px;
+  }
+
+  .booking-detail {
+    font-size: 14px;
+  }
+
+  .flight-number {
+    font-size: 16px;
+  }
+
+  table th, table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .container h2 {
+    font-size: 20px;
+  }
+
+  .booking-detail {
+    font-size: 12px;
+  }
+
+  .flight-number {
+    font-size: 14px;
+  }
+
+  table th, table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+/* Fin du fichier CSS */

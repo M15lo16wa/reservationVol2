@@ -1,13 +1,14 @@
 <div class="app-container">
   <header class="mat-elevation-z4 header-container">
-    <h1>Réservation de Vols</h1>
+    <h1>Réservation de Vols1</h1>
   </header>
 </div>
 
 <div class="promo-section">
   <h1 class="pub">Profitez des réductions !</h1>
   <p class="attraction">
-    Réservez votre vol dès maintenant et bénéficiez de réductions exceptionnelles.
+    Réservez votre vol dès maintenant et bénéficiez de réductions
+    exceptionnelles.
   </p>
 </div>
 
@@ -17,18 +18,24 @@
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Départ</mat-label>
       <input matInput formControlName="departure" placeholder="Ville de départ">
+      <mat-error *ngIf="searchForm.get('departure')?.invalid && searchForm.get('departure')?.touched">
+        La ville de départ est obligatoire.
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Destination</mat-label>
-      <input matInput formControlName="destination" placeholder="Ville de destination">
+      <input matInput formControlName="destination"
+        placeholder="Ville de destination">
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Date de départ</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="date">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <input matInput [matDatepicker]="departurePicker"
+        formControlName="departureDate">
+      <mat-datepicker-toggle matSuffix
+        [for]="departurePicker"></mat-datepicker-toggle>
+      <mat-datepicker #departurePicker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
@@ -58,23 +65,28 @@
         <tr>
           <th>Vol</th>
           <th>Départ</th>
+          <th>Heure de depart</th>
           <th>Destination</th>
-          <th>Date</th>
-          <th>Passagers</th>
-          <th>Heure</th>
-          <th>Classe</th>
+          <th>Heure de arrivee</th>
+          <th>Date d'arrivée</th>
           <th>Prix</th>
+          <th>Status</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let flight of flights">
-          <td>{{ flight.number }}</td>
-          <td>{{ flight.departure }}</td>
-          <td>{{ flight.destination }}</td>
-          <td>{{ flight.date | date }}</td>
-          <td>{{ flight.time }}</td>
-          <td>{{ flight.class }}</td>
-          <td>{{ flight.price | currency:'EUR' }}</td>
+        <tr *ngFor="let flight of flights" class="clickable-row">
+          <td>{{flight.numeroVol}}</td>
+          <td>{{flight.Destination.villeDepart}}</td>
+          <td>{{flight.Date.heureDepart}}</td>
+          <td>{{flight.Destination.villeDestination}}</td>
+          <td>{{flight.Date.heureArrivee}}</td>
+          <td>{{flight.Date.date|date:'dd/MM/yyyy'}}</td>
+          <td>{{flight.prix}}$</td>
+          <td>{{flight.statut}}</td>
+          <td>
+            <button mat-raised-button color="primary" >Réserver</button>
+          </td>
         </tr>
       </tbody>
     </table>

@@ -24,8 +24,7 @@
 
           <button type="submit" aria-label="Se connecter">Se connecter</button>
         </form>
-        <p class="signup-link">Pas encore inscrit ? <a href="/signup"
-            aria-label="Créer un compte">Créer un
+        <p class="signup-link">Pas encore inscrit ? <a (click)="gotToRegister()" aria-label="Créer un compte">Créer un
             compte</a></p>
         <p *ngIf="errorMessage" class="error" role="alert">{{ errorMessage
           }}</p>

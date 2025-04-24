@@ -1,15 +1,69 @@
-<div class="content-container">
-  <header class="dasboard">
-    <h2 class="logo">Dashboard</h2>
-    <nav>
-      <ul class="links">
-        <li><button class="btn-1" (click)="goToReservations()">Réservations</button></li>
-        <li><button class="btn-1">Comptes Utilisateurs</button></li>
-        <li><button class="btn-1">Planing de vols</button></li>
-        <li><button class="btn-1">Statistique</button></li>
-        <li><button class="btn">Log Out</button></li>
-      </ul>
-    </nav>
-  </header>
+<div class="table-container">
+  <h2>La liste des reservations</h2>
+  <table>
+    <thead>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Mail</th>
+              <th>Numéro de réservation</th>
+              <th>Numéro de vol</th>
+              <th>État</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let booking of bookings">
+              <td>{{ booking.User.nom }}</td>
+              <td>{{ booking.numReservation }}</td>
+              <td>{{ booking.Flight.numeroVol }}</td>
+              <td>
+                <span [ngClass]="{
+                  'status-validée': booking.statut === 'Confirmée',
+                  'status-non-validée': booking.statut === 'Annulée',
+                  'status-attente': booking.statut === 'En attente'
+                }">
+                  {{ booking.statut }}
+                </span>
+              </td>
+              <td>
+                <button (click)="annulerReservation(booking.id_res)">Annuler</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+<!-- Section Planning des vols -->
+<div class="table-container" style="margin-top: 40px;">
+  <h2>Planning des vols</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Numéro de vol</th>
+        <th>Ville de départ</th>
+        <th>Ville de destination</th>
+        <th>Date du vol</th>
+        <th>Heure de départ</th>
+        <th>Heure d'arrivée</th>
+        <th>Statut</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let flight of filghts">
+        <td>{{ flight.numeroVol }}</td>
+        <td>{{ flight.Destination.villeDepart }}</td>
+        <td>{{ flight.Destination.villeDestination }}</td>
+        <td>{{ flight.Date.date | date:'dd/MM/yyyy' }}</td>
+        <td>{{ flight.Date.heureDepart }}</td>
+        <td>{{ flight.Date.heureArrivee }}</td>
+        <td [ngClass]="flight.statut === 'Actif' ? 'status-validée' : 'status-non-validée'">
+          {{ flight.statut }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 

@@ -1,42 +1,28 @@
-<body>
-  <div class="container">
-    <h2>Liste des réservations</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Départ</th>
-          <th>Date de départ</th>
-          <th>Arrivée</th>
-          <th>Date d'arrivée</th>
-          <th>Classe</th>
-          <th>Prix ($)</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>France</td>
-          <td>10/04/2025</td>
-          <td>Bulgarie</td>
-          <td> 13/04/2025</td>
-          <td>Economique</td>
-          <td>1200$</td>
-          <td><span class="Status">Réserver</span></td>
-          <td><button class="btn">Annulation</button></td>
+<div class="container">
+  <h2>la liste des utilisateurs</h2>
+  <table class="user-table">
 
-        </tr>
-        <tr>
-          <td>France</td>
-          <td>10/04/2025</td>
-          <td>Bulgarie</td>
-          <td> 13/04/2025</td>
-          <td>Economique</td>
-          <td>1200$</td>
-          <td><span class="Status">Réserver</span></td>
-          <td><button class="btn">Annulation</button></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</body>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id_user }}</td>
+        <td>{{ user.nom }}</td>
+        <td>{{ user.prenom }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <button (click)="deleteUser(user.id_user)" mat-raised-button color="primary">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+

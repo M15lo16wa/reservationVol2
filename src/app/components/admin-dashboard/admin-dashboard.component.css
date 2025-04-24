@@ -1,109 +1,188 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
-
-/* le style global */
-*{
-  font-family: "Dancing Script", cursive;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-}
-
-/* le style globale de la liste */
-.content-container {
+/* Style général pour les conteneurs de tableau */
+.table-container {
   width: 100%;
-}
-
-/* l'en-tête de la page */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 20px;
-  background-color: #ffb18ad2;
-  color: #8a5c5c;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-header .logo {
-  font-size: 30px;
-  font-weight: bold;
-}
-
-/* la barre de navigation */
-nav .links {
-  display: flex;
-  list-style: none;
-  gap: 15px;
-  padding: 0;
-  margin: 0;
-}
-
-nav .links li .btn-1 {
-  color: #fff8c1;
-  background-color: #02678f;
-  padding: 5px 10px;
-  font-size: 20px;
-  font-weight: 600;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-nav .links li a:hover {
-  background-color: #d1ff52;
-}
-
-nav .btn {
-  background-color: #28a745;
-  color: rgb(204, 199, 199);
-  padding: 8px 14px;
-  font-size: 20px;
-  font-weight: 600;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-nav .btn:hover {
-  background-color: #218838;
-}
-
-/* style du tableau de bord */
-.dashboard {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  margin-top: 100px; /* pour éviter le chevauchement avec l'en-tête */
-}
-
-.dashboard-card {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Scroll fluide sur iOS */
+  margin: 20px 0 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  background-color: #fff;
+  position: relative;
+}
+
+/* Style pour les titres des tableaux */
+.table-container h2 {
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  color: #2c3e50;
+  margin: 25px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f1f1f1;
 }
 
-.dashboard-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+/* Style de base pour tous les tableaux */
+.table-container table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.dashboard-card h3 {
-  font-size: 24px;
-  color: #02678f;
-  margin-bottom: 10px;
+/* En-tête des tableaux */
+.table-container thead {
+  background-color: #3498db;
+  color: white;
+  position: sticky;
+  top: 0;
 }
 
-.dashboard-card p {
-  font-size: 16px;
-  color: #555;
+.table-container thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  min-width: 120px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table-container thead th:last-child {
+  border-right: none;
+}
+
+/* Corps des tableaux */
+.table-container tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+
+.table-container tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.table-container tbody tr:hover {
+  background-color: #f1f8fe;
+}
+
+.table-container tbody td {
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  color: #333;
+  white-space: nowrap;
+  min-width: 120px;
+}
+
+/* Styles spécifiques pour les états */
+.status-validée {
+  color: #27ae60;
+  background-color: #e8f5e9;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 16px;
+  display: inline-block;
+  text-align: center;
+  min-width: 100px;
+}
+
+.status-non-validée {
+  color: #e74c3c;
+  background-color: #ffebee;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 16px;
+  display: inline-block;
+  text-align: center;
+  min-width: 100px;
+}
+
+.status-attente {
+  color: #f39c12;
+  background-color: #fff3e0;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 16px;
+  display: inline-block;
+  text-align: center;
+  min-width: 100px;
+}
+
+/* Boutons */
+.table-container button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table-container button:hover {
+  background-color: #c0392b;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Style spécifique pour le tableau des vols */
+.table-container:nth-child(2) {
+  margin-top: 40px;
+}
+
+.table-container:nth-child(2) thead {
+  background-color: #2c3e50;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .table-container {
+    margin: 15px 0 30px;
+  }
+
+  .table-container h2 {
+    font-size: 1.3rem;
+    margin: 20px 0;
+  }
+
+  .table-container thead th,
+  .table-container tbody td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-container table {
+    min-width: 600px;
+  }
+
+  .table-container button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .status-validée,
+  .status-non-validée,
+  .status-attente {
+    padding: 4px 8px;
+    min-width: 80px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .table-container h2 {
+    font-size: 1.2rem;
+    margin: 15px 0;
+  }
+
+  .table-container {
+    border-radius: 8px;
+  }
 }

@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://cdn.pixabay.com/photo/2015/12/23/18/32/airport-1105980_640.jpg');
+  background-size: cover;
+  height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  max-height: 60%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.container-header h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.container-header p {
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.from-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+.from-group input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+#confirmation {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+#confirmation:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 20px;
+  }
+
+  .container-header h2 {
+    font-size: 1.5rem;
+  }
+}

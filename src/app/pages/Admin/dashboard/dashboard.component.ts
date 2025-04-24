@@ -5,7 +5,7 @@ import { AirlinesComponent } from '../airlines/airlines.component';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [AdminDashboardComponent, AirlinesComponent],
+  imports: [AirlinesComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
