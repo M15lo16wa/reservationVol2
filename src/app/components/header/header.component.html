@@ -1,19 +1,30 @@
 <body>
-  <div class="container">
-    <div class="container-header">
+  <div class="registration-container">
+    <div class="registration-card">
+      <div class="registration-header">
         <h2>Airline Register</h2>
         <p>Inscrivez-vous pour profiter de nos meilleurs services.</p>
-        <div class="from-group">
-          <label for="username">Nom:</label>
-          <input type="text" id="username" name="nom" required>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-          <label for="password">Mot de passe:</label>
-          <input type="password" id="password" name="password" required>
-          <label for="confirm-password">Confirmer le mot de passe:</label>
-          <input type="password" id="confirm-password" name="confirm-password" required>
-          <button id="confirmation">registration</button>
+      </div>
+      <form class="registration-form">
+        <div class="form-group">
+          <label for="username">Nom</label>
+          <input type="text" id="username" name="nom" placeholder="Entrez votre nom" required>
         </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirmer le mot de passe</label>
+          <input type="password" id="confirm-password" name="confirm-password"
+            placeholder="Confirmez votre mot de passe" required>
+        </div>
+        <button type="submit" class="submit-button">S'inscrire</button>
+      </form>
     </div>
   </div>
 </body>

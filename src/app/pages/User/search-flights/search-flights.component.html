@@ -1,95 +1,133 @@
 <div class="app-container">
-  <header class="mat-elevation-z4 header-container">
-    <h1>Réservation de Vols1</h1>
-  </header>
-</div>
-
-<div class="promo-section">
-  <h1 class="pub">Profitez des réductions !</h1>
-  <p class="attraction">
-    Réservez votre vol dès maintenant et bénéficiez de réductions
-    exceptionnelles.
-  </p>
-</div>
-
-<div class="container">
-  <form [formGroup]="searchForm" class="search-form mat-elevation-z4">
-
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Départ</mat-label>
-      <input matInput formControlName="departure" placeholder="Ville de départ">
-      <mat-error *ngIf="searchForm.get('departure')?.invalid && searchForm.get('departure')?.touched">
-        La ville de départ est obligatoire.
-      </mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Destination</mat-label>
-      <input matInput formControlName="destination"
-        placeholder="Ville de destination">
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Date de départ</mat-label>
-      <input matInput [matDatepicker]="departurePicker"
-        formControlName="departureDate">
-      <mat-datepicker-toggle matSuffix
-        [for]="departurePicker"></mat-datepicker-toggle>
-      <mat-datepicker #departurePicker></mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Passagers</mat-label>
-      <input matInput type="number" formControlName="passengers" min="1">
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Classe</mat-label>
-      <mat-select formControlName="class">
-        <mat-option value="economy">Économique</mat-option>
-        <mat-option value="business">Business</mat-option>
-        <mat-option value="first">Première classe</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="onSearch()">
-      Rechercher
-    </button>
-  </form>
-</div>
-
-<section class="planning">
-  <h2 id="titre-planning">Planning des vols</h2>
-  <div class="calendar">
-    <table class="flight-planning-table">
-      <thead>
-        <tr>
-          <th>Vol</th>
-          <th>Départ</th>
-          <th>Heure de depart</th>
-          <th>Destination</th>
-          <th>Heure de arrivee</th>
-          <th>Date d'arrivée</th>
-          <th>Prix</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let flight of flights" class="clickable-row">
-          <td>{{flight.numeroVol}}</td>
-          <td>{{flight.Destination.villeDepart}}</td>
-          <td>{{flight.Date.heureDepart}}</td>
-          <td>{{flight.Destination.villeDestination}}</td>
-          <td>{{flight.Date.heureArrivee}}</td>
-          <td>{{flight.Date.date|date:'dd/MM/yyyy'}}</td>
-          <td>{{flight.prix}}$</td>
-          <td>{{flight.statut}}</td>
-          <td>
-            <button mat-raised-button color="primary" >Réserver</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Voyagez avec Style</h1>
+      <p>Découvrez nos destinations et profitez de nos meilleures offres</p>
+    </div>
   </div>
-</section>
+
+  <div class="search-section">
+    <div class="search-container">
+      <h2>Rechercher un vol</h2>
+      <form [formGroup]="searchForm" class="search-form mat-elevation-z4">
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Départ</mat-label>
+            <mat-select formControlName="departure">
+              <mat-option *ngFor="let city of departureCities" [value]="city">
+                {{city}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="searchForm.get('departure')?.invalid && searchForm.get('departure')?.touched">
+              La ville de départ est obligatoire.
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Destination</mat-label>
+            <mat-select formControlName="destination">
+              <mat-option *ngFor="let city of destinationCities" [value]="city">
+                {{city}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Date de départ</mat-label>
+            <input matInput [matDatepicker]="departurePicker" formControlName="departureDate">
+            <mat-datepicker-toggle matSuffix [for]="departurePicker"></mat-datepicker-toggle>
+            <mat-datepicker #departurePicker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Passagers</mat-label>
+            <input matInput type="number" formControlName="passengers" min="1">
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Classe</mat-label>
+            <mat-select formControlName="class">
+              <mat-option value="economy">Économique</mat-option>
+              <mat-option value="business">Business</mat-option>
+              <mat-option value="first">Première classe</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" class="search-button" (click)="onSearch()">
+            <mat-icon>search</mat-icon>
+            Rechercher
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <section class="flights-section">
+    <div class="section-header">
+      <h2>Planning des vols disponibles</h2>
+      <div class="filters">
+        <mat-form-field appearance="outline">
+          <mat-label>Filtrer par statut</mat-label>
+          <mat-select (selectionChange)="filterFlights($event)">
+            <mat-option value="all">Tous</mat-option>
+            <mat-option value="disponible">Disponible</mat-option>
+            <mat-option value="complet">Complet</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="flights-container">
+      <div *ngFor="let flight of flights" class="flight-card mat-elevation-z2">
+        <div class="flight-header">
+          <span class="flight-number">Vol {{flight.numeroVol}}</span>
+          <span class="flight-status" [ngClass]="flight.statut.toLowerCase()">
+            {{flight.statut}}
+          </span>
+        </div>
+
+        <div class="flight-details">
+          <div class="route">
+            <div class="departure">
+              <h3>{{flight.Destination.villeDepart}}</h3>
+              <p>{{flight.Date.heureDepart}}</p>
+            </div>
+            <div class="flight-path">
+              <mat-icon>flight_takeoff</mat-icon>
+              <div class="line"></div>
+              <mat-icon>flight_land</mat-icon>
+            </div>
+            <div class="arrival">
+              <h3>{{flight.Destination.villeDestination}}</h3>
+              <p>{{flight.Date.heureArrivee}}</p>
+            </div>
+          </div>
+
+          <div class="flight-info">
+            <div class="date">
+              <mat-icon>calendar_today</mat-icon>
+              <span>{{flight.Date.date | date:'dd/MM/yyyy'}}</span>
+            </div>
+            <div class="price">
+              <mat-icon>attach_money</mat-icon>
+              <span>{{flight.prix}}$</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flight-actions">
+          <button mat-raised-button color="primary" [disabled]="flight.statut === 'Inactif'">
+            <mat-icon>flight_takeoff</mat-icon>
+            Réserver
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
 <app-footer></app-footer>

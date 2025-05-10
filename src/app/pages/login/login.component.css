@@ -1,94 +1,216 @@
-/* Style global */
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-image: url('https://img-4.linternaute.com/gjwbhC4dOdGOAMJ5p7DpLxk-xEA=/1500x/smart/90059b1d141b4d45824060f381323ec3/ccmcms-linternaute/10133254-02-hublot-rond-filipefrazao-fotoliacom.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  /* background-color: beige; */
   font-family: Arial, sans-serif;
 }
 
-/* Conteneur principal */
-.login-container {
+body {
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://cdn.pixabay.com/photo/2015/12/23/18/32/airport-1105980_640.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  padding: 20px;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.registration-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.registration-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.registration-header {
   text-align: center;
-  width: 100%;
+  margin-bottom: 2rem;
 }
 
-/* Nom de la plateforme */
-.platform-name {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #333;
+.registration-header h2 {
+  color: #1a1a1a;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Boîte de connexion */
-.login-box {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 350px;
-  margin: 0 auto;
-}
-
-/* Titres */
-h2 {
-  margin-bottom: 20px;
-  color: #444;
-}
-
-/* Labels */
-label {
-  display: block;
-  text-align: left;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #555;
-}
-
-/* Champs de saisie */
-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.registration-header p {
+  color: #4a4a4a;
   font-size: 1rem;
 }
 
-/* Bouton */
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #5a67d8;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-button:hover {
-  background-color: #434190;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-/* Lien d'inscription */
-.signup-link {
-  margin-top: 15px;
+.form-group label {
+  color: #1a1a1a;
+  font-weight: 500;
   font-size: 0.9rem;
 }
 
-.signup-link a {
-  color: #5a67d8;
-  text-decoration: none;
+.form-group input {
+  padding: 0.8rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
 }
 
-.signup-link a:hover {
+.form-group input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  background: rgba(255, 255, 255, 1);
+}
+
+.form-group input::placeholder {
+  color: #666;
+}
+
+/* Styles spécifiques pour la page de login */
+.remember-me {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -0.5rem;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #4a4a4a;
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.forgot-password {
+  color: #3498db;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #2980b9;
   text-decoration: underline;
+}
+
+.submit-button {
+  background: #3498db;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1rem;
+  color: #4a4a4a;
+  font-size: 0.9rem;
+}
+
+.register-link a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.register-link a:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+.error-message {
+  color: #e74c3c;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background: rgba(231, 76, 60, 0.1);
+  border-radius: 4px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .registration-card {
+    padding: 1.5rem;
+  }
+
+  .registration-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .remember-me {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 }

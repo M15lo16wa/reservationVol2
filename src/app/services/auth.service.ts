@@ -39,7 +39,7 @@ export class AuthService {
         localStorage.setItem('role', response.role);
 
         // Redirection selon le rôle
-        if (response.role === 'admin') {
+        if (response.role === 'agent'){
           this.router.navigate(['/admin/dashboard']);
         } else {
           this.router.navigate(['/components/user-profile']);
