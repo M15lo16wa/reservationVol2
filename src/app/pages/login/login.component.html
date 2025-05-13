@@ -17,7 +17,7 @@
       <form class="registration-form" (ngSubmit)="login()" aria-label="Formulaire de connexion">
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" [(ngModel)]="email" name="username" placeholder="Entrez votre email" required
+          <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="Entrez votre email" required
             aria-required="true">
         </div>
         <div class="form-group">
@@ -33,11 +33,16 @@
           </label>
           <a href="#" class="forgot-password">Mot de passe oublié ?</a>
         </div>
-        <button type="submit" class="submit-button" aria-label="Se connecter">Se connecter</button>
+        <button type="submit" class="submit-button" [disabled]="isLoading" aria-label="Se connecter">
+          <span *ngIf="!isLoading">Se connecter</span>
+          <span *ngIf="isLoading">Connexion en cours...</span>
+        </button>
         <div class="register-link">
-          <p>Pas encore de compte ? <a (click)="gotToRegister()" aria-label="Créer un compte">S'inscrire</a></p>
+          <p>Pas encore de compte ? <a (click)="goToRegister()" aria-label="Créer un compte">S'inscrire</a></p>
         </div>
-        <p *ngIf="errorMessage" class="error-message" role="alert">{{ errorMessage }}</p>
+        <div *ngIf="errorMessage" class="error-message" role="alert">
+          {{ errorMessage }}
+        </div>
       </form>
     </div>
   </div>

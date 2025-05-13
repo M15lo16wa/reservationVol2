@@ -1,26 +1,111 @@
-<body>
-  <div class="container">
-    <div class="sidebar">
-      <h2>Administrator</h2>
-      <ul>
-        <li><p href class="btn" (click)="redirectToAdminDashboard()">Compagnies</p></li>
-        <li><p href class="btn" (click)="redirectToUtilisateur()">Gestion de comptes</p></li>
-        <li><p href class="btn">Rapports</p></li>
-        <li><p href="/logout" class="btn">Se déconnecter</p></li>
-      </ul>
+<div class="admin-dashboard">
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2>Administration</h2>
+      <p class="admin-role">Administrateur</p>
     </div>
-    <div class="main">
-      <div class="card">
-        <h3>Statistiques</h3>
-        <div class="chart-container">
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <button class="nav-btn" (click)="redirectToAdminDashboard()">
+            <i class="fas fa-plane"></i>
+            Compagnies aériennes
+          </button>
+        </li>
+        <li>
+          <button class="nav-btn" (click)="redirectToUtilisateur()">
+            <i class="fas fa-users"></i>
+            Gestion des comptes
+          </button>
+        </li>
+        <li>
+          <button class="nav-btn" (click)="redirectToRapports()">
+            <i class="fas fa-chart-bar"></i>
+            Rapports
+          </button>
+        </li>
+        <li>
+          <button class="nav-btn logout" (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            Déconnexion
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="main-content">
+    <header class="dashboard-header">
+      <h1>Tableau de bord</h1>
+      <div class="date-filter">
+        <select>
+          <option>Derniers 7 jours</option>
+          <option>Derniers 30 jours</option>
+          <option>Derniers 90 jours</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-ticket-alt"></i>
+        </div>
+        <div class="stat-info">
+          <h3>Réservations</h3>
+          <p class="stat-value">{{stats.reservations | number}}</p>
+          <p class="stat-change positive">+12% vs mois dernier</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-plane"></i>
+        </div>
+        <div class="stat-info">
+          <h3>Vols actifs</h3>
+          <p class="stat-value">{{stats.volsActifs}}</p>
+          <p class="stat-change positive">+5% vs mois dernier</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="stat-info">
+          <h3>Passagers par vol</h3>
+          <p class="stat-value">{{stats.passagersParVol}}</p>
+          <p class="stat-change negative">-3% vs mois dernier</p>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-euro-sign"></i>
+        </div>
+        <div class="stat-info">
+          <h3>Revenus</h3>
+          <p class="stat-value">{{stats.revenus | currency:'EUR'}}</p>
+          <p class="stat-change positive">+8% vs mois dernier</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="charts-container">
+      <div class="chart-card">
+        <h3>Évolution des réservations</h3>
+        <div class="chart-wrapper">
           <canvas id="statsChart"></canvas>
         </div>
       </div>
-      <div class="card stats">
-        <div class="stat">Reservations: 1,521</div>
-        <div class="stat">Nombre de billets: 32,211</div>
-        <div class="stat">Passager par vol: 122</div>
+
+      <div class="chart-card">
+        <h3>Répartition des vols</h3>
+        <div class="chart-wrapper">
+          <canvas id="flightsChart"></canvas>
+        </div>
       </div>
     </div>
   </div>
-</body>
+</div>

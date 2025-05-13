@@ -1,11 +1,20 @@
 <div class="container">
   <h2>Ma page de réservations</h2>
 
-  <div class="reservation-box">
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Chargement de vos réservations...</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!isLoading && !errorMessage" class="reservation-box">
     <h3 class="num-reservation">Les détails de vos réservations</h3>
     <p>Veuillez valider votre réservation en utilisant votre carte bancaire.</p>
 
-    <ul class="booking-list">
+    <ul class="booking-list" *ngIf="booking.length > 0">
       <li *ngFor="let booking of booking" class="booking-item">
         <h4 class="flight-number">Numéro de vol : </h4>
         <p class="booking-detail"><strong>Départ :</strong> </p>
@@ -20,20 +29,27 @@
       </li>
     </ul>
 
+    <div *ngIf="booking.length === 0" class="no-bookings">
+      <p>Aucune réservation trouvée.</p>
+    </div>
+
     <form (submit)="validerReservation()">
       <p>
         Nom :
         <input type="text" name="nom" placeholder="Entrez votre nom" required />
       </p>
       <p>
-        Email :
-        <input type="email" name="email" placeholder="Entrez votre email" required />
+        Prenom :
+        <input type="text" name="prenom" placeholder="Entrez votre prenom" required />
       </p>
-      <button type="submit">Valider la réservation</button>
+      <div class="button-group">
+        <button type="submit" class="btn-confirm">Confirmer la réservation</button>
+        <button type="button" class="btn-cancel" (click)="annulerReservation()">Annuler</button>
+      </div>
     </form>
   </div>
 
-  <div class="confirmed-reservations">
+  <div *ngIf="!isLoading && !errorMessage" class="confirmed-reservations">
     <h2>Les réservations confirmées</h2>
     <table>
       <thead>
@@ -52,8 +68,6 @@
       <tbody>
         <tr *ngFor="let booking of booking">
           <td>{{booking.id_res}}</td>
-          <!-- <td>{{ booking.nom }}</td> -->
-          <!-- <td>{{ booking.email }}</td> -->
           <td>{{ booking.numReservation }}</td>
           <td>{{ booking.Flight.numeroVol }}</td>
           <td>{{booking.Destination.villeDepart}}</td>
@@ -69,5 +83,3 @@
     </table>
   </div>
 </div>
-
-

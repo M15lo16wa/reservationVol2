@@ -23,44 +23,31 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { HeaderComponent } from './components/header/header.component';
 export const routes: Routes = [
   // lien des pages components
-  {path:'components/booking', component:BookingComponent},
-  {path: 'components/admin-dashboard', component: AdminDashboardComponent},
-  {path:'components/header', component:HeaderComponent},
-  {path:'components/user-profile', component: UserProfileComponent},
+  { path: 'components/booking', component: BookingComponent },
+  { path: 'components/admin-dashboard', component: AdminDashboardComponent },
+  { path: 'components/header', component: HeaderComponent },
+  { path: 'components/user-profile', component: UserProfileComponent, canActivate: [AuthGuard] },
 
   // lien de la page administrateur
-  // {path:'admin/dashboard',component:DashboardComponent,
-  //   canActivate: [AuthGuard],
-  //   children:[
-  //     {
-  //       path:'airlines',
-  //       component: AirlinesComponent,
-  //     },
-  //     {
-  //       path:'flights',
-  //       component: FlightsComponent,
-  //     },
-  //     {
-  //       path:'bookings',
-  //       component: BookingsComponent,
-  //     }
-  //   ]
-  // },
 
-  { path: 'admin/airlines', component: AirlinesComponent },
-  { path: 'admin/flights', component: FlightsComponent },
-  { path: 'admin/bookings', component: BookingsComponent },
-  { path: 'admin/users', component: UsersComponent },
-  { path: 'admin/passengers', component: PassengersComponent },
-  { path: 'admin/dashboard', component: DashboardComponent },
+  {
+    path: 'admin/dashboard',
+    canActivate: [AuthGuard],
+    loadComponent: () => import('./pages/Admin/dashboard/dashboard.component').then(m => m.DashboardComponent)
+  },
+  { path: 'admin/airlines', component: AirlinesComponent, canActivate: [AuthGuard] },
+  { path: 'admin/flights', component: FlightsComponent, canActivate: [AuthGuard] },
+  { path: 'admin/bookings', component: BookingsComponent, canActivate: [AuthGuard] },
+  { path: 'admin/users', component: UsersComponent, canActivate: [AuthGuard] },
+  { path: 'admin/passengers', component: PassengersComponent, canActivate: [AuthGuard] },
 
   // lien de la page utilisateur
-  {path:'user/search-flights', component:SearchFlightsComponent},
+  { path: 'user/search-flights', component: SearchFlightsComponent },
   { path: 'user/flight-details', component: FlightDetailsComponent },
   { path: 'user/booking', component: BookingComponent },
   { path: 'user/acceuil', component: AcceuilComponent },
 
-  { path: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: 'user/acceuil', pathMatch: 'full' }
 
 ];
